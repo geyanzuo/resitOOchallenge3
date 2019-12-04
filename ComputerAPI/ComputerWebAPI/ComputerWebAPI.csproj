@@ -174,7 +174,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoomcomputerController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\RoomUnusedController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -194,7 +194,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Computer.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Query.cs" />
     <Compile Include="Models\Room.cs">
       <DependentUpon>Computer.tt</DependentUpon>
     </Compile>

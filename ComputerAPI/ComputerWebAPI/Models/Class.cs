@@ -26,6 +26,7 @@ namespace ComputerWebAPI.Models
         public string Name { get; set; }
         public string Building { get; set; }
         public Nullable<int> RoomNo { get; set; }
+        
     
         public virtual Room Room { get; set; }
     }

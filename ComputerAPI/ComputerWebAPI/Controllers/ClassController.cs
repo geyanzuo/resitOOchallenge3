@@ -36,18 +36,24 @@ namespace ComputerWebAPI.Controllers
             connection.Close();
             return classes;
         }
-
+        
         // GET: api/Class/5
-        [ResponseType(typeof(Class))]
-        public async Task<IHttpActionResult> GetClass(string id)
+        public IEnumerable <Class> Get(string id)
         {
-            Class @class = await db.Classes.FindAsync(id);
-            if (@class == null)
+            SqlConnection connection = new SqlConnection("Server=tcp:civapi.database.windows.net,1433;Initial Catalog=civapi;User ID=civ_user;Password=Monday1330;");
+            string query = " Select *From Class Where ClassCode =" + id;
+            SqlCommand com = new SqlCommand(query, connection);
+            connection.Open();
+            SqlDataReader result = com.ExecuteReader();
+
+            List<Class> classes = new List<Class>();
+            while (result.Read())
             {
-                return NotFound();
+                classes.Add(new Class(result[0].ToString(), result[1].ToString(), result[2].ToString(), int.Parse(result[3].ToString())));
             }
 
-            return Ok(@class);
+            connection.Close();
+            return classes;
         }
 
         
